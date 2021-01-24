@@ -1,0 +1,11 @@
+<div class="container">
+	<div class="py-4">
+		<button (click)="onAddBoxClick()" class="btn btn-primary">Add Box</button>
+		<button (click)="toggleKeyboardControl()" class="btn btn-primary float-right">{{isKeyboardEnabled? 'Disable Keyboard':'Enable Keyboard'}}</button>
+	</div>
+	<div class="shadow bg-white rounded" [ngStyle]="{'height':'28rem','overflow-x':'hidden','overflow-y':'auto'}">
+
+		<app-box (on-box-click)="onBoxClick($event)" class="cursor-pointer" [data]="{boxes:boxes,selected:activeBox}">
+		</app-box>
+
+	</div>
