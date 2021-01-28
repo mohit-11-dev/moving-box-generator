@@ -1,13 +1,18 @@
-<div *ngIf="dataVal && dataVal.boxes.length>0" class="row px-3 py-2">
-	<div *ngFor="let box of dataVal.boxes; let i=index" class="col-2 py-2">
-		<div (click)="onClick(i)" [attr.id]="'box'+box" *ngIf="dataVal" class="card"
-			[ngStyle]="{'height': '12rem','border-color':dataVal.selected===i+1?'pink':''}">
-			<div class="card-body">
-				<h5 class="card-title">Box {{box}}</h5>
+<div class="shadow bg-white rounded"
+	[ngStyle]="{'height':'28rem','width':'69.4rem','position':'relative','overflow-x':'hidden','overflow-y':'hidden'}">
+	<div *ngIf="dataVal && dataVal.boxes.length>0" class="px-3 py-2">
+		<div *ngFor="let box of dataVal.boxes; let i=index"
+			[ngStyle]="{'position':'absolute','top':box.top?box.top+'em':'1em','left':box.left?box.left+'em':'1em','z-index':i+1}"
+			class="py-2">
+			<div (click)="onClick(i)" [attr.id]="'box'+box.id" *ngIf="dataVal" class="card"
+				[ngStyle]="{'height': '8rem','border-color':dataVal.selected===i+1?'pink':''}">
+				<div class="card-body">
+					<h5 class="card-title">Box {{box.id}}</h5>
 
 
+				</div>
 			</div>
-		</div>
 
+		</div>
 	</div>
 </div>
